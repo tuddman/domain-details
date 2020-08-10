@@ -1,8 +1,10 @@
-#Domain Details
+# Domain Details
 
 _Know things about domains._
 
 Domain Details is a stubbed service to capture & provide information about collected domains.
+
+---
 
 ### Getting Started
 
