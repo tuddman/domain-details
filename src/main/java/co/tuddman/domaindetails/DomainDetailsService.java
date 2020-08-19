@@ -22,10 +22,15 @@ public class DomainDetailsService implements CommandLineRunner {
 		jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS domain ( \n" +
 				"   id UUID NOT NULL, \n" +
 				"   url VARCHAR(100), \n" +
+				"   common_name VARCHAR(100), \n" +
+				"   first_discovered DATE, \n" +
+				"   online_status BOOLEAN, \n" +
+				"   online_latest DATE, \n" +
 				"   details VARCHAR(2000) NOT NULL, \n" +
-				"   notes VARCHAR(2000) NOT NULL, \n" +
-				"   first_discovered DATE \n" +
+				"   notes VARCHAR(2000) NOT NULL \n" +
 				");");
+
+		jdbcTemplate.execute("ALTER TABLE domain ADD CONSTRAINT URL_UNIQUE UNIQUE(url);");
 	}
 
 }
